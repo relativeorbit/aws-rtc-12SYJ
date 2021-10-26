@@ -1,0 +1,11 @@
+name: aws-rtc-stac
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - s3fs
+  - rasterio=1.2
+  - pystac
+  - pip
+  - pip:
+    - stactools-sentinel1~=0.2
