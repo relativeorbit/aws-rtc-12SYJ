@@ -8,4 +8,4 @@ dependencies:
   - pystac
   - pip
   - pip:
-    - stactools-sentinel1~=0.2
+    - git+https://github.com/stactools-packages/sentinel1@main
