@@ -51,7 +51,7 @@ jobs:
 
     - name: Generate STAC
       run: |
-        ./s1_rtc_stac.py ${{ github.event.inputs.mgrs }}
+        ./s1_rtc_stac.py
 
     - name: Validate STAC
       run: |
@@ -60,8 +60,8 @@ jobs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v3
       with:
-        commit-message: "update ${{ github.event.inputs.mgrs }}"
-        title: "Update ${{ github.event.inputs.mgrs }} STAC (${{ steps.date.outputs.date }})"
+        commit-message: "update catalog through ${{ steps.date.outputs.date }}"
+        title: "Update STAC (${{ steps.date.outputs.date }})"
         reviewers: "scottyhq"
         body: |
-          Updates to ${{ github.event.inputs.mgrs }} catalog through ${{ steps.date.outputs.date }})
+          Update catalog through ${{ steps.date.outputs.date }})
