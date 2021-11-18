@@ -35,6 +35,14 @@ def get_current_item_ids(catalog):
     items = [item.id for item in catalog.get_all_items()]
     return items
 
+def save_item_collection(catalog):
+    ''' consolidate all catalog items into a single JSON for stackstac
+    https://github.com/gjoseph92/stackstac/discussions/86
+    '''
+    cat = pystac.read_file(catalog)
+    itemcol = pystac.ItemCollection(cat.get_all_items())
+    itemcol.save_object('mycollection.json')
+
 if __name__ == '__main__':
     if not os.path.isfile('catalog.json'):
         catalog = pystac.Catalog(id='aws-rtc-stac',
@@ -59,6 +67,8 @@ if __name__ == '__main__':
     catalog.normalize_hrefs('./')
     catalog.validate() #catalog.validate_all()
     catalog.save(catalog_type=pystac.CatalogType.RELATIVE_PUBLISHED)
+
+    save_item_collection('catalog.json')
 
     #https://raw.githubusercontent.com/relativeorbit/aws-rtc-stac/main/catalog.json
     #ROOTURL = f'https://github.com/{os.environ["GITHUB_REPOSITORY"]}'
