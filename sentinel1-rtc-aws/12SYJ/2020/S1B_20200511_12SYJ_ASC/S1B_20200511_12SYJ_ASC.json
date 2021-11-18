@@ -156,7 +156,8 @@
     {
       "rel": "collection",
       "href": "../../../collection.json",
-      "type": "application/json"
+      "type": "application/json",
+      "title": "Sentinel-1 RTC CONUS"
     },
     {
       "rel": "parent",

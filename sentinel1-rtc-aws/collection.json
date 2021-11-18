@@ -29,27 +29,6 @@
     "https://stac-extensions.github.io/mgrs/v1.0.0/schema.json"
   ],
   "title": "Sentinel-1 RTC CONUS",
-  "extent": {
-    "spatial": {
-      "bbox": [
-        [
-          -124.7346,
-          24.54254,
-          -66.89191,
-          49.36949
-        ]
-      ]
-    },
-    "temporal": {
-      "interval": [
-        [
-          "2016-07-29T00:00:00Z",
-          null
-        ]
-      ]
-    }
-  },
-  "license": "proprietary",
   "keywords": [
     "backscatter",
     "radiometry",
@@ -105,5 +84,26 @@
       32618,
       32619
     ]
-  }
+  },
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -124.7346,
+          24.54254,
+          -66.89191,
+          49.36949
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2016-07-29T00:00:00Z",
+          null
+        ]
+      ]
+    }
+  },
+  "license": "proprietary"
 }
