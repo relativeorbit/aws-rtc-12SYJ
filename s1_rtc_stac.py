@@ -7,14 +7,18 @@ import s3fs
 import sys
 import pystac
 import os
+import yaml
 from stactools.sentinel1.rtc.stac import create_item, create_collection
 
 # Picks up all environment variables on github runner
 #print(os.environ)
 # e.g. 'AWS_REGION' 'GITHUB_REPOSITORY': 'relativeorbit/aws-rtc-stac'
 
-MGRS = sys.argv[1]
 fs = s3fs.S3FileSystem(anon=True)
+
+with open('CONFIG.yml') as f:
+    config = yaml.safe_load(f)
+    MGRS = config['input']['MGRS']
 
 def s3_to_http(s3path, region='us-west-2'):
     s3prefix = 'sentinel-s1-rtc-indigo'

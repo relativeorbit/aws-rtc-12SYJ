@@ -2,11 +2,10 @@
 name: STAC Updater
 
 on:
+  # Run once per day at midnight
+  schedule:
+   - cron: "0 0 * * *"
   workflow_dispatch:
-    inputs:
-      mgrs:
-        description: MGRS tile
-        default: 12SYJ
 
 env:
   GDAL_DISABLE_READDIR_ON_OPEN: EMPTY_DIR
@@ -53,7 +52,7 @@ jobs:
     - name: Generate STAC
       run: |
         ./s1_rtc_stac.py ${{ github.event.inputs.mgrs }}
-        
+
     - name: Validate STAC
       run: |
         stac validate --recurse --no-links --no-assets catalog.json
